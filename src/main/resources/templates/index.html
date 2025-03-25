@@ -38,7 +38,7 @@
             </div> -->
             <div class="col-lg-3 col-md-12 feature-box-second-col">
                 <div class="feature-box bg-white shadow">
-                    <h3 class="feature-box-title" th:text="#{main-header-right-top}"></h3>
+                    <h3 class="feature-box-title mb-3" th:text="#{main-header-right-top}"></h3>
                     <!-- <p class="feature-box-desc" th:text="#{main-body-right-top}"></p> -->
                     <div class="feature-box-btn-wrapper" th:if="${#authorization.expression('isAnonymous()')}">
                         <a class="btn feature-box-btn" th:href="@{'/login'}" role="button" th:text="#{main-button-unauthorized-right-top}"></a>
