@@ -6,22 +6,23 @@
 <body class="d-flex flex-column">
 
 
-<div th:replace="~{common/navbar :: common-navbar}"></div>
+    <div th:replace="~{common/navbar :: common-navbar}"></div>
 
 
-<div class="bg-img-hero d-flex align-items-center" style="height: 596px !important; background-image: url(/images/center-main.webp);">
-    <div class="container py-5">
-        <div class="col-lg-5 col-md-8 py-5">
-            <h1 class="lead-header text-white" th:text="#{main-header-left-top}"></h1>
-            <p class="lead text-white mt-4" th:text="#{main-body-left-top}"></p>
+    <div class="bg-img-hero d-flex align-items-center"
+        style="height: 596px !important; background-image: url(/images/center-main.webp);">
+        <div class="container py-5">
+            <div class="col-lg-5 col-md-8 py-5">
+                <h1 class="lead-header text-white" th:text="#{main-header-left-top}"></h1>
+                <p class="lead text-white mt-4" th:text="#{main-body-left-top}"></p>
+            </div>
         </div>
     </div>
-</div>
 
-<section style="margin-top:-17rem !important" class="mt-feature-box z-index-9">
-    <div class="container ">
-        <div class="row justify-content-end feature-box-first-col">
-            <!-- <div class="col-lg-3 col-md-12">
+    <section style="margin-top:-17rem !important" class="mt-feature-box z-index-9">
+        <div class="container ">
+            <div class="row justify-content-end feature-box-first-col">
+                <!-- <div class="col-lg-3 col-md-12">
                 <div class="feature-box bg-white shadow">
                     <h3 class="feature-box-title" th:text="#{main-header-center-top}"></h3>
                     <p class="feature-box-desc" th:text="#{main-body-center-top}"></p>
@@ -36,36 +37,39 @@
                     </div>
                 </div>
             </div> -->
-            <div class="col-lg-3 col-md-12 feature-box-second-col">
-                <div class="feature-box bg-white shadow">
-                    <h3 class="feature-box-title mb-3" th:text="#{main-header-right-top}"></h3>
-                    <!-- <p class="feature-box-desc" th:text="#{main-body-right-top}"></p> -->
-                    <div class="feature-box-btn-wrapper" th:if="${#authorization.expression('isAnonymous()')}">
-                        <a class="btn feature-box-btn" th:href="@{'/login'}" role="button" th:text="#{main-button-unauthorized-right-top}"></a>
-                    </div>
-                    <div class="feature-box-btn-wrapper" th:if="${#authorization.expression('isAuthenticated()')}">
-                        <a class="btn feature-box-btn" th:href="@{'/shop'}" role="button" th:text="#{main-button-authorized-right-top}">S   </a>
+                <div class="col-lg-3 col-md-12 feature-box-second-col">
+                    <div class="feature-box bg-white shadow">
+                        <h3 class="feature-box-title mb-3" th:text="#{main-header-right-top}"></h3>
+                        <!-- <p class="feature-box-desc" th:text="#{main-body-right-top}"></p> -->
+                        <div class="feature-box-btn-wrapper" th:if="${#authorization.expression('isAnonymous()')}">
+                            <a class="btn feature-box-btn" th:href="@{'/login'}" role="button"
+                                th:text="#{main-button-unauthorized-right-top}"></a>
+                        </div>
+                        <div class="feature-box-btn-wrapper" th:if="${#authorization.expression('isAuthenticated()')}">
+                            <a class="btn feature-box-btn" th:href="@{'/shop'}" role="button"
+                                th:text="#{main-button-authorized-right-top}">S </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<div th:replace="~{common/footer :: footer}"></div>
+    <div th:replace="~{common/footer :: footer}"></div>
 
-<div th:replace="~{common/footer :: scripts}"></div>
+    <div th:replace="~{common/footer :: scripts}"></div>
 
-<div th:replace="~{common/footer :: shoppingCartDropdownWidget}"></div>
+    <div th:replace="~{common/footer :: shoppingCartDropdownWidget}"></div>
 
 
-<script th:if="${needsValueList != null}">
-    $("#leadGenConfig").click(function(event){
-        var url="/configure-needs/"+$("#leadGenNeedParam").val();
-        this.href=url;
-    });
-    $("#leadGenNeedParam").selectric();
-</script>
+    <script th:if="${needsValueList != null}">
+        $("#leadGenConfig").click(function (event) {
+            var url = "/configure-needs/" + $("#leadGenNeedParam").val();
+            this.href = url;
+        });
+        $("#leadGenNeedParam").selectric();
+    </script>
 
 </body>
+
 </html>
