@@ -9,7 +9,7 @@
 <div th:replace="~{common/navbar :: common-navbar}"></div>
 
 
-<div class="bg-img-hero d-flex align-items-center" style="background-image: url(/images/center-main.jpg);">
+<div class="bg-img-hero d-flex align-items-center" style="height: 596px !important; background-image: url(/images/center-main.webp);">
     <div class="container py-5">
         <div class="col-lg-5 col-md-8 py-5">
             <h1 class="lead-header text-white" th:text="#{main-header-left-top}"></h1>
@@ -18,10 +18,10 @@
     </div>
 </div>
 
-<section class="mt-feature-box z-index-9">
+<section style="margin-top:-17rem !important" class="mt-feature-box z-index-9">
     <div class="container ">
         <div class="row justify-content-end feature-box-first-col">
-            <div class="col-lg-3 col-md-12">
+            <!-- <div class="col-lg-3 col-md-12">
                 <div class="feature-box bg-white shadow">
                     <h3 class="feature-box-title" th:text="#{main-header-center-top}"></h3>
                     <p class="feature-box-desc" th:text="#{main-body-center-top}"></p>
@@ -35,54 +35,22 @@
                         </span>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col-lg-3 col-md-12 feature-box-second-col">
                 <div class="feature-box bg-white shadow">
                     <h3 class="feature-box-title" th:text="#{main-header-right-top}"></h3>
-                    <p class="feature-box-desc" th:text="#{main-body-right-top}"></p>
+                    <!-- <p class="feature-box-desc" th:text="#{main-body-right-top}"></p> -->
                     <div class="feature-box-btn-wrapper" th:if="${#authorization.expression('isAnonymous()')}">
                         <a class="btn feature-box-btn" th:href="@{'/login'}" role="button" th:text="#{main-button-unauthorized-right-top}"></a>
                     </div>
                     <div class="feature-box-btn-wrapper" th:if="${#authorization.expression('isAuthenticated()')}">
-                        <a class="btn feature-box-btn" th:href="@{'/shop'}" role="button" th:text="#{main-button-authorized-right-top}">Start shopping</a>
+                        <a class="btn feature-box-btn" th:href="@{'/shop'}" role="button" th:text="#{main-button-authorized-right-top}">S   </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-
-
-<div class="container mt-5 mb-5 pb-2 flex-grow">
-
-    <div class="row">
-        <div class="col-md-4">
-            <img src="/images/bottom-left-main.jpg" class="img-thumbnail">
-            <h3>Etiam porta sem</h3>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus ut fermentum massa justo sit amet risus. </p>
-            <p><a href="#">Read more <i class="fas fa-arrow-right pl-2"></i></a></p>
-        </div>
-        <div class="col-md-4">
-            <img src="/images/bottom-center-main.jpg" class="img-thumbnail">
-            <h3>Condimentum nibh</h3>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh. </p>
-            <p><a href="#">Read more <i class="fas fa-arrow-right pl-2"></i></a></p>
-
-        </div>
-        <div class="col-md-4">
-            <img src="/images/bottom-right-main.jpg" class="img-thumbnail">
-            <h3>Tortor mauris</h3>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper.</p>
-            <p><a href="#">Read more <i class="fas fa-arrow-right pl-2"></i></a></p>
-        </div>
-    </div>
-
-</div>
-
-
-
-
 
 <div th:replace="~{common/footer :: footer}"></div>
 
