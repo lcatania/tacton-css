@@ -10,8 +10,5 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @SpringBootTest
 public class CustomerSelfServiceFrontendApplicationTests {
 
-    @Test
-    public void contextLoads() {
-    }
-
+    
 }
