@@ -148,14 +148,23 @@
 
 
         $('#shopping-cart-name-form-btn-save').click(function() {
-                $.ajax({
-                    type: "POST",
-                    data: { externalId: /*[[${shoppingCart.externalId}]]*/, newName : $('#shopping-cart-name-input').val()},
-                    url: "/changeCartName/",
-                    success: function (data, status) {
-                        window.location.reload();
-                    }
-                });
+			var token = $('meta[name="_csrf"]').attr('content');
+			var header = $('meta[name="_csrf_header"]').attr('content');
+
+			
+            $.ajax({
+                type: "POST",
+                data: { externalId: /*[[${shoppingCart.externalId}]]*/, newName : $('#shopping-cart-name-input').val()},
+                url: "/changeCartName",
+				beforeSend: function(xhr) {
+					if (token != null && header != null) {
+                   		xhr.setRequestHeader(header, token); // CSRF-Token setzen						
+					}
+               },
+                success: function (data, status) {
+                    window.location.reload();
+                }
+            });
         });
 
 

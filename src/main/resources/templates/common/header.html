@@ -3,6 +3,8 @@
 <head th:fragment="common-header(title)">
 
     <meta charset="UTF-8">
+	<meta th:name="_csrf" th:content="${_csrf.token}"/>
+	<meta th:name="_csrf_header" th:content="${_csrf.headerName}"/>
     <title th:text="${@environment.getProperty('demo_site_name')} + ' - ' + ${title}"></title>
 
     <link th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
