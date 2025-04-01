@@ -26,7 +26,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
@@ -102,20 +101,27 @@ public class SecurityConfig {
 		return new CustomAccessDeniedHandler();
 	}
 
+//	@Bean
+//    public CsrfTokenRepository csrfTokenRepository() {
+//        HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+//        repository.setHeaderName("X-XSRF-TOKEN");
+//        return repository;
+//    }
 	
 	
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
 	    requestCache.setMatchingRequestParameterName(null);
-	    
+
 		http
 				.cors(cors -> cors.disable())
+
 				.authorizeHttpRequests(auth -> auth
 						.requestMatchers(AdminMatchers).hasRole("ADMIN")
 						.requestMatchers(PublicMatchers).permitAll()
 						.requestMatchers(AnonymousMatchers).anonymous()
-						.dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
+						.dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.ERROR).permitAll()
 						.anyRequest().authenticated())
 				.exceptionHandling(exception -> exception.accessDeniedHandler(accessDeniedHandler()))
 				.formLogin(login -> login
